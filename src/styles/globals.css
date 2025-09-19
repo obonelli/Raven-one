@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/* ===== Tema base (Tailwind v4) =====
+   Define variables de tema con @theme.
+   Esto genera utilidades como bg-brand-500, text-accent-600, etc.
+*/
+@theme {
+  /* Colores brand (violeta) */
+  --color-brand-50: #f5f7ff;
+  --color-brand-100: #eceefe;
+  --color-brand-200: #d9dbfd;
+  --color-brand-300: #b8bafc;
+  --color-brand-400: #8f8ef8;
+  --color-brand-500: #6a63f1;
+  --color-brand-600: #544bdc;
+  --color-brand-700: #463eb6;
+  --color-brand-800: #393491;
+  --color-brand-900: #2f2a74;
+
+  /* Colores accent (cyan) */
+  --color-accent-400: #65e3ff;
+  --color-accent-500: #2fd7ff;
+  --color-accent-600: #12bde6;
+
+  /* Container */
+  --container-max: 1280px;
+  --container-padding: 1rem;
+
+  /* Sombras personalizadas */
+  --shadow-glow: 0 0 20px rgba(47, 215, 255, .35);
+}
+
+/* ===== Modo oscuro por clase .dark =====
+   En v4, para “dark:”, sobreescribes variables en @layer theme.
+*/
+@layer theme {
+  .dark {
+    /* ejemplo: puedes ajustar contraste si quieres */
+    /* --color-brand-600: #6a63f1;  ← opcional */
+  }
+}
+
+/* ===== Estilos globales opcionales ===== */
+:root {
+  --bg: #0b0d12;
+  --fg: #e8ecf1;
+  --muted: #9aa3af;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  max-width: var(--container-max);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Atajos útiles */
+.raven-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl md:text-5xl font-semibold;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+
+  a {
+    @apply transition-colors hover:text-accent-500;
+  }
+}
