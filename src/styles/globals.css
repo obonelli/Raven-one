@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@obonelli/raven-ui/styles.css";
 
 /* ===== Tema base (Tailwind v4) =====
    Define variables de tema con @theme.
